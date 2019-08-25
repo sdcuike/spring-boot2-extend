@@ -1,8 +1,17 @@
 logging:
   level:
-      root: debug
+    root: debug
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/sample_db
-    password: rootroot
-    username: root
+    sdcuike:
+      url: jdbc:mysql://localhost:3306/sample_db
+      password: rootroot
+      username: root
+      filters: stat,demo3Filter
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.sdcuike.springboot.domain
