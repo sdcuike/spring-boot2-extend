@@ -1,6 +1,8 @@
 package com.sdcuike.springboot.controller;
 
-import com.sdcuike.springboot.extend.ignore.Ignore;
+import com.sdcuike.springboot.extend.ignore.EnableJacksonIgnore;
+import com.sdcuike.springboot.extend.ignore.JacksonIgnore;
+import com.sdcuike.springboot.model.Response;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,14 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/10/13
  */
 @RestController
-@RequestMapping("/ignore-view")
-public class IgnoreController {
+@RequestMapping("/jackson-ignore")
+public class JacksonIgnoreTestController {
 
     @GetMapping("/test")
-    @Ignore
+    @EnableJacksonIgnore
     public Response<IgnoreDto> testNoJsonView() {
         Response<IgnoreDto> dtoResponse = new Response<>();
-        IgnoreDto dto = new IgnoreDto(1L, "sdcuike");
+        Person person = new Person(11L, "doctor who");
+        IgnoreDto dto = new IgnoreDto(1L, "sdcuike", person);
         dtoResponse.setData(dto);
         return dtoResponse;
     }
@@ -28,21 +31,22 @@ public class IgnoreController {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class Response<T> {
-        private int code;
+    public static class IgnoreDto {
+        private Long id;
 
-        private String msg;
+        @JacksonIgnore
+        private String userName;
 
-        private T data;
-
+        private Person person;
     }
 
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class IgnoreDto {
+    public static class Person {
         private Long id;
-        @Ignore
+
+        @JacksonIgnore
         private String userName;
     }
 }

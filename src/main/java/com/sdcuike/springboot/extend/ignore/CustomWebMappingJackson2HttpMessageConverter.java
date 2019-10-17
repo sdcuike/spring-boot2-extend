@@ -9,7 +9,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
  * @date 2019/10/15
  */
 final class CustomWebMappingJackson2HttpMessageConverter extends MappingJackson2HttpMessageConverter {
-    public CustomWebMappingJackson2HttpMessageConverter(ObjectMapper objectMapper) {
+    CustomWebMappingJackson2HttpMessageConverter(ObjectMapper objectMapper) {
         super(objectMapper);
     }
 

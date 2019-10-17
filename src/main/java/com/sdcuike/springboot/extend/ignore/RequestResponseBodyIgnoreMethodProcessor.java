@@ -23,11 +23,12 @@ final class RequestResponseBodyIgnoreMethodProcessor extends RequestResponseBody
 
     @Override
     public boolean supportsReturnType(MethodParameter returnType) {
-        return returnType.hasMethodAnnotation(Ignore.class);
+        return returnType.hasMethodAnnotation(EnableJacksonIgnore.class);
     }
 
+
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         RequestMappingHandlerAdapter handlerAdapter = CustomWebMvcConfigurer.requestMappingHandlerAdapter;
         List<HandlerMethodReturnValueHandler> handlers = new ArrayList<>(handlerAdapter.getReturnValueHandlers());
 

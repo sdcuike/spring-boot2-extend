@@ -50,7 +50,7 @@ public class JsonViewTestController {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class JsonViewObjectDTO {
+    private static class JsonViewObjectDTO {
         private Long id;
         private String userName;
     }
@@ -58,7 +58,7 @@ public class JsonViewTestController {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class JsonViewObject2DTO {
+    private static class JsonViewObject2DTO {
         private Long id;
         @JsonView(JsonViewProfile.Test.class)
         private String userName;
@@ -67,7 +67,7 @@ public class JsonViewTestController {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
-    public static class Response<T> {
+    private static class Response<T> {
         @JsonView(JsonViewProfile.All.class)
         private int code;
 
@@ -79,7 +79,7 @@ public class JsonViewTestController {
 
     }
 
-    public static class JsonViewProfile {
+    private static class JsonViewProfile {
         public interface All {
         }
 

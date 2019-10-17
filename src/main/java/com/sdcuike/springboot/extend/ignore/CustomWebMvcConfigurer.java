@@ -23,12 +23,12 @@ import java.util.stream.Collectors;
  * @date 2019/10/13
  */
 @Configuration
-public class CustomWebMvcConfigurer implements WebMvcConfigurer {
+class CustomWebMvcConfigurer implements WebMvcConfigurer {
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    public static RequestMappingHandlerAdapter requestMappingHandlerAdapter;
+    static RequestMappingHandlerAdapter requestMappingHandlerAdapter;
 
     @Autowired
     public void setRequestMappingHandlerAdapter(RequestMappingHandlerAdapter requestMappingHandlerAdapter) {
@@ -41,7 +41,6 @@ public class CustomWebMvcConfigurer implements WebMvcConfigurer {
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
         List<HttpMessageConverter<?>> converters = new ArrayList<>();
         ObjectMapper mapper = objectMapper.copy();
-        SimpleModule module = new SimpleModule();
         mapper.registerModule(new SimpleModule() {
             @Override
             public void setupModule(SetupContext context) {
@@ -54,8 +53,7 @@ public class CustomWebMvcConfigurer implements WebMvcConfigurer {
                             return beanProperties;
                         }
 
-                        List<BeanPropertyWriter> collect = beanProperties.stream().filter(t -> Objects.isNull(t.findAnnotation(Ignore.class))).collect(Collectors.toList());
-                        return collect;
+                        return beanProperties.stream().filter(t -> Objects.isNull(t.findAnnotation(JacksonIgnore.class))).collect(Collectors.toList());
                     }
                 });
             }
