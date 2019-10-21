@@ -1,6 +1,6 @@
 package com.sdcuike.springboot.controller;
 
-import com.sdcuike.springboot.extend.ignore.*;
+import com.sdcuike.springboot.extend.jackson.*;
 import com.sdcuike.springboot.model.Response;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +18,7 @@ import java.util.UUID;
 public class EncryptDecryptTestController {
 
     @GetMapping("/encrypt")
-    @EnableJacksonIgnore
+    @EnableJacksonExtend
     public Response<EncryptSerializerTest> testEncryptSerializer() {
         Response<EncryptSerializerTest> dtoResponse = new Response<>();
         EncryptSerializerTest test = new EncryptSerializerTest(1L, "sdcuike", 17899989898L, "Gallifrey星球", UUID.randomUUID().toString());
@@ -43,6 +43,7 @@ public class EncryptDecryptTestController {
      * @return
      */
     @PostMapping("/decrypt")
+    @EnableJacksonExtend
     public Response<Boolean> testDecrypt(@RequestBody EncryptSerializerTest dto) {
         Response<Boolean> response = new Response<>();
         response.setData(Boolean.TRUE);

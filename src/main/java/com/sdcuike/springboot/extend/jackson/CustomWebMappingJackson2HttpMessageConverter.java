@@ -1,8 +1,11 @@
-package com.sdcuike.springboot.extend.ignore;
+package com.sdcuike.springboot.extend.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Type;
 
 /**
  * @author sdcuike
@@ -15,6 +18,16 @@ final class CustomWebMappingJackson2HttpMessageConverter extends MappingJackson2
 
     @Override
     public boolean canWrite(Class<?> clazz, MediaType mediaType) {
+        return true;
+    }
+
+    @Override
+    public boolean canRead(Class<?> clazz, MediaType mediaType) {
+        return true;
+    }
+
+    @Override
+    public boolean canRead(Type type, Class<?> contextClass, MediaType mediaType) {
         return true;
     }
 }

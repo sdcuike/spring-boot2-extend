@@ -1,7 +1,6 @@
 package com.sdcuike.springboot.controller;
 
-import com.sdcuike.springboot.extend.ignore.EnableJacksonIgnore;
-import com.sdcuike.springboot.extend.ignore.JacksonIgnore;
+import com.sdcuike.springboot.extend.jackson.JacksonIgnore;
 import com.sdcuike.springboot.model.Response;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class JacksonIgnoreTestController {
 
     @GetMapping("/test")
-    @EnableJacksonIgnore
     public Response<IgnoreDto> testNoJsonView() {
         Response<IgnoreDto> dtoResponse = new Response<>();
         Person person = new Person(11L, "doctor who");

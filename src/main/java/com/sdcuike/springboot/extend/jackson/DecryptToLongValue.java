@@ -1,7 +1,6 @@
-package com.sdcuike.springboot.extend.ignore;
+package com.sdcuike.springboot.extend.jackson;
 
 import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,7 +13,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@JsonSerialize(using = EncryptSerializer.class)
+//@JsonDeserialize(using = LongDecryptDeserializer.class)
 @JacksonAnnotationsInside
-public @interface EncryptValue {
+public @interface DecryptToLongValue {
 }
