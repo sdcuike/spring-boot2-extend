@@ -21,7 +21,7 @@ public class EncryptDecryptTestController {
     @EnableJacksonExtend
     public Response<EncryptSerializerTest> testEncryptSerializer() {
         Response<EncryptSerializerTest> dtoResponse = new Response<>();
-        EncryptSerializerTest test = new EncryptSerializerTest(1L, "sdcuike", 17899989898L, "Gallifrey星球", UUID.randomUUID().toString());
+        EncryptSerializerTest test = new EncryptSerializerTest(1L, "sdcuike", 17899989898L,66, "Gallifrey星球", UUID.randomUUID().toString());
         dtoResponse.setData(test);
         return dtoResponse;
     }
@@ -35,6 +35,7 @@ public class EncryptDecryptTestController {
      * "id": 1,
      * "name": "sdcuike",
      * "phone": "MTc4OTk5ODk4OTg=",
+     * "userId": "NjY=",
      * "address": "R2FsbGlmcmV55pif55CD",
      * "uuid": "fda9636c-3d03-432a-ba16-f7bb9ab1b65f"
      * }
@@ -62,6 +63,10 @@ public class EncryptDecryptTestController {
         @EncryptValue
         @DecryptToLongValue
         private Long phone;
+
+        @EncryptValue
+        @DecryptToLongValue
+        private long userId;
 
         @EncryptValue
         @DecryptToStringValue

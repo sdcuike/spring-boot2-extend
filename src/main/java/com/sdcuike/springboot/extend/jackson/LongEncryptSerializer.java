@@ -31,6 +31,10 @@ public class LongEncryptSerializer extends StdSerializer<Long> implements Contex
             return;
         }
 
+        if (value == 0) {
+            gen.writeNumber(value);
+            return;
+        }
         if (encryptValue == null) {
             gen.writeNumber(value);
             return;

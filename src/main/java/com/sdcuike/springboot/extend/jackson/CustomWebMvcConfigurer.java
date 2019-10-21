@@ -129,7 +129,9 @@ class CustomWebMvcConfigurer implements WebMvcConfigurer, InitializingBean {
 
         simpleModule.addSerializer(String.class, new StringEncryptSerializer(String.class));
         simpleModule.addSerializer(Long.class, new LongEncryptSerializer(Long.class));
-        simpleModule.addDeserializer(Long.class, new LongDecryptDeserializer());
+        simpleModule.addSerializer(Long.TYPE, new LongEncryptSerializer(Long.class));
+        simpleModule.addDeserializer(Long.class, new LongDecryptDeserializer(Long.class));
+        simpleModule.addDeserializer(Long.TYPE, new LongDecryptDeserializer(Long.class));
         simpleModule.addDeserializer(String.class, new StringDecryptDeserializer());
 
         mapper.registerModule(simpleModule);

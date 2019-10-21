@@ -24,8 +24,8 @@ import java.util.Objects;
 class LongDecryptDeserializer extends StdScalarDeserializer<Long> implements ContextualDeserializer {
     protected DecryptToLongValue decryptToLongValue;
 
-    protected LongDecryptDeserializer() {
-        super(Long.class);
+    public LongDecryptDeserializer(Class<?> vc) {
+        super(vc);
     }
 
     @Override
@@ -46,7 +46,6 @@ class LongDecryptDeserializer extends StdScalarDeserializer<Long> implements Con
         throw new UnsupportedOperationException();
     }
 
-
     @Override
     public JsonDeserializer<?> createContextual(DeserializationContext ctx, BeanProperty property) throws JsonMappingException {
         DecryptToLongValue annotation = property.getAnnotation(DecryptToLongValue.class);
@@ -54,7 +53,7 @@ class LongDecryptDeserializer extends StdScalarDeserializer<Long> implements Con
             annotation = property.getContextAnnotation(DecryptToLongValue.class);
         }
         if (Objects.nonNull(annotation)) {
-            LongDecryptDeserializer longDecryptDeserializer = new LongDecryptDeserializer();
+            LongDecryptDeserializer longDecryptDeserializer = new LongDecryptDeserializer(Long.class);
             longDecryptDeserializer.decryptToLongValue = annotation;
             return longDecryptDeserializer;
         }

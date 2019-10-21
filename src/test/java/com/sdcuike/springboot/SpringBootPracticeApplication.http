@@ -1,0 +1,24 @@
+###
+
+GET http://127.0.0.1:8080/jackson-encrypt/encrypt
+
+
+
+
+###
+
+POST http://127.0.0.1:8080/jackson-encrypt/decrypt
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "sdcuike",
+  "phone": "MTc4OTk5ODk4OTg=",
+  "userId": "NjY=",
+  "address": "R2FsbGlmcmV55pif55CD",
+  "uuid": "fda9636c-3d03-432a-ba16-f7bb9ab1b65f"
+}
+
+
+
+###
