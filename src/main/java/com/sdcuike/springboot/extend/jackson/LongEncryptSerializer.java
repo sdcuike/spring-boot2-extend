@@ -17,7 +17,7 @@ import java.util.Objects;
  * @author sdcuike
  * @DATE 2019/10/18
  */
-public class LongEncryptSerializer extends StdSerializer<Long> implements ContextualSerializer {
+class LongEncryptSerializer extends StdSerializer<Long> implements ContextualSerializer {
     protected EncryptValue encryptValue;
 
     protected LongEncryptSerializer(Class<Long> t) {

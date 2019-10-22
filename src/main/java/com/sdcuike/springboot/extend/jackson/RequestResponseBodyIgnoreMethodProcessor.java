@@ -1,7 +1,5 @@
 package com.sdcuike.springboot.extend.jackson;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
@@ -14,8 +12,7 @@ import java.util.List;
  */
 final class RequestResponseBodyIgnoreMethodProcessor extends RequestResponseBodyMethodProcessor {
 
-    @Autowired
-    public RequestResponseBodyIgnoreMethodProcessor(@Qualifier("customWebMappingJackson2HttpMessageConverter") List<HttpMessageConverter<?>> converters) {
+    public RequestResponseBodyIgnoreMethodProcessor(List<HttpMessageConverter<?>> converters) {
         super(converters);
     }
 

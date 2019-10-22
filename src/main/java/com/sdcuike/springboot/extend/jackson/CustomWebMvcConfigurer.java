@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
 import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -31,16 +30,9 @@ class CustomWebMvcConfigurer implements WebMvcConfigurer, InitializingBean {
 
     @Autowired
     private ObjectMapper objectMapper;
-    @Autowired
-    private ApplicationContext ctx;
 
+    @Autowired
     private RequestMappingHandlerAdapter handlerAdapter;
-
-    @Autowired
-    public void setRequestMappingHandlerAdapter(RequestMappingHandlerAdapter requestMappingHandlerAdapter) {
-        handlerAdapter = requestMappingHandlerAdapter;
-    }
-
 
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
@@ -107,7 +99,7 @@ class CustomWebMvcConfigurer implements WebMvcConfigurer, InitializingBean {
         if (Objects.nonNull(processor)) {
             return;
         }
-        List<HttpMessageConverter<?>> converters = new ArrayList<>();
+
         ObjectMapper mapper = objectMapper.copy();
         SimpleModule simpleModule = new SimpleModule() {
             @Override
@@ -135,9 +127,9 @@ class CustomWebMvcConfigurer implements WebMvcConfigurer, InitializingBean {
         simpleModule.addDeserializer(String.class, new StringDecryptDeserializer());
 
         mapper.registerModule(simpleModule);
-        converters.add(new CustomWebMappingJackson2HttpMessageConverter(mapper));
+        List<HttpMessageConverter<?>> converters = List.of(new CustomWebMappingJackson2HttpMessageConverter(mapper));
+
         processor = new RequestResponseBodyIgnoreMethodProcessor(converters);
-        ctx.getAutowireCapableBeanFactory().autowireBean(processor);
     }
 
     private RequestResponseBodyIgnoreMethodProcessor processor;
