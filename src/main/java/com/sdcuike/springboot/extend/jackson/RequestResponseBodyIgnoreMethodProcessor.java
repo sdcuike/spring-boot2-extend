@@ -1,17 +1,11 @@
 package com.sdcuike.springboot.extend.jackson;
 
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.stereotype.Component;
-import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

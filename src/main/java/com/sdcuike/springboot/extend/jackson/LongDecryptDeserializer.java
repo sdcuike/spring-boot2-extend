@@ -29,7 +29,7 @@ class LongDecryptDeserializer extends StdScalarDeserializer<Long> implements Con
     }
 
     @Override
-    public Long deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public Long deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         ObjectCodec oc = p.getCodec();
         JsonNode node = oc.readTree(p);
         JsonNodeType nodeType = node.getNodeType();
@@ -47,7 +47,7 @@ class LongDecryptDeserializer extends StdScalarDeserializer<Long> implements Con
     }
 
     @Override
-    public JsonDeserializer<?> createContextual(DeserializationContext ctx, BeanProperty property) throws JsonMappingException {
+    public JsonDeserializer<?> createContextual(DeserializationContext ctx, BeanProperty property) {
         DecryptToLongValue annotation = property.getAnnotation(DecryptToLongValue.class);
         if (Objects.isNull(annotation)) {
             annotation = property.getContextAnnotation(DecryptToLongValue.class);

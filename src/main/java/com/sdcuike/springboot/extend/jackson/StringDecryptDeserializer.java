@@ -28,7 +28,7 @@ class StringDecryptDeserializer extends StdScalarDeserializer<String> implements
     }
 
     @Override
-    public String deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public String deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
 
         ObjectCodec oc = p.getCodec();
         JsonNode node = oc.readTree(p);
@@ -43,7 +43,7 @@ class StringDecryptDeserializer extends StdScalarDeserializer<String> implements
     }
 
     @Override
-    public JsonDeserializer<?> createContextual(DeserializationContext ctxt, BeanProperty property) throws JsonMappingException {
+    public JsonDeserializer<?> createContextual(DeserializationContext ctxt, BeanProperty property) {
         DecryptToStringValue annotation = property.getAnnotation(DecryptToStringValue.class);
         if (Objects.isNull(annotation)) {
             annotation = property.getContextAnnotation(DecryptToStringValue.class);

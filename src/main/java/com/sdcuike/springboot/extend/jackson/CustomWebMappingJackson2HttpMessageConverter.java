@@ -3,7 +3,6 @@ package com.sdcuike.springboot.extend.jackson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Type;
 
