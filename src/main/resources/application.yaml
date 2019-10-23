@@ -1,6 +1,11 @@
 logging:
   level:
     root: debug
+    sun: error
+    javax: error
+  pattern:
+    console: "[%d{yyyy-MM-dd HH:mm:ss.SSS}][%level][%logger{1000}][%method][%L] - %msg%n"
+
 spring:
   datasource:
     sdcuike:
