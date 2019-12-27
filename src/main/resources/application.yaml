@@ -22,3 +22,5 @@ mybatis:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
   type-aliases-package: com.sdcuike.springboot.domain
+  type-handlers-package: com.sdcuike.springboot.extend.mybatis.typehandler
+
