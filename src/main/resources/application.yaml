@@ -24,3 +24,8 @@ mybatis:
   type-aliases-package: com.sdcuike.springboot.domain
   type-handlers-package: com.sdcuike.springboot.extend.mybatis.typehandler
 
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+
