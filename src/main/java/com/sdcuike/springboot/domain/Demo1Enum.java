@@ -1,6 +1,6 @@
 package com.sdcuike.springboot.domain;
 
-import com.sdcuike.springboot.extend.mybatis.IEnumTypeHandler;
+import com.sdcuike.extend.mybatis.IEnumTypeHandler;
 
 /**
  * @author sdcuike

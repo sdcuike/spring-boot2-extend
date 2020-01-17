@@ -1,6 +1,6 @@
 package com.sdcuike.springboot.controller;
 
-import com.sdcuike.springboot.extend.jackson.*;
+import com.sdcuike.extend.mvc.jackson.annotation.*;
 import com.sdcuike.springboot.model.Response;
 import lombok.AllArgsConstructor;
 import lombok.Data;

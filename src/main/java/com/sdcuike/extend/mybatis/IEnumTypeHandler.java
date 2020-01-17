@@ -1,4 +1,4 @@
-package com.sdcuike.springboot.extend.mybatis;
+package com.sdcuike.extend.mybatis;
 
 /**
  * 为了mybatis 统一处理枚举，自定义接口

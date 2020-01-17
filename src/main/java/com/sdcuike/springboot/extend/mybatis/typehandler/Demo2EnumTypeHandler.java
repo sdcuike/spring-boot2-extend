@@ -1,7 +1,7 @@
 package com.sdcuike.springboot.extend.mybatis.typehandler;
 
+import com.sdcuike.extend.mybatis.BaseEnumTypeHandler;
 import com.sdcuike.springboot.domain.Demo2Enum;
-import com.sdcuike.springboot.extend.mybatis.BaseEnumTypeHandler;
 
 /**
  * @author sdcuike

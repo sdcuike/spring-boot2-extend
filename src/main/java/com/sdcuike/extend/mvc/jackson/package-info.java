@@ -5,4 +5,4 @@
  * @author sdcuike
  * @date 2019/10/15
  */
-package com.sdcuike.springboot.extend.jackson;
+package com.sdcuike.extend.mvc.jackson;

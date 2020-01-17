@@ -1,6 +1,7 @@
-package com.sdcuike.springboot.extend.jackson;
+package com.sdcuike.extend.mvc.jackson.annotation;
 
 import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,4 +1,4 @@
-package com.sdcuike.springboot.extend.jackson;
+package com.sdcuike.extend.mvc.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;

@@ -1,10 +1,10 @@
 package com.sdcuike.springboot.dao;
 
 
+import com.sdcuike.extend.dynamic.datasource.annotation.DS;
 import com.sdcuike.springboot.domain.Customer;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
+@DS("dataSource")
 public interface CustomerMapper {
     int deleteByPrimaryKey(Integer customernumber);
 

@@ -1,4 +1,4 @@
-package com.sdcuike.springboot.extend.mybatis;
+package com.sdcuike.extend.mybatis;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

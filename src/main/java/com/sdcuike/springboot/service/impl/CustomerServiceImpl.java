@@ -1,10 +1,13 @@
 package com.sdcuike.springboot.service.impl;
 
+import com.sdcuike.extend.dynamic.datasource.annotation.DS;
+import com.sdcuike.springboot.config.DataSourceConfig;
 import com.sdcuike.springboot.dao.CustomerMapper;
 import com.sdcuike.springboot.domain.Customer;
 import com.sdcuike.springboot.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -17,7 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerMapper customerMapper;
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @DS(DataSourceConfig.DEFAULT_DS)
     @Override
     public Customer get(Integer customernumber) {
         return customerMapper.selectByPrimaryKey(customernumber);

@@ -1,11 +1,11 @@
 package com.sdcuike.springboot.dao;
 
+import com.sdcuike.extend.dynamic.datasource.annotation.DS;
 import com.sdcuike.springboot.domain.EnumDemo;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
+@DS("dataSource")
 public interface EnumDemoDao {
 
     int insert(EnumDemo record);

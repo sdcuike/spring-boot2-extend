@@ -1,5 +1,6 @@
-package com.sdcuike.springboot.extend.jackson;
+package com.sdcuike.extend.mvc.jackson;
 
+import com.sdcuike.extend.mvc.jackson.annotation.EnableJacksonExtend;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;

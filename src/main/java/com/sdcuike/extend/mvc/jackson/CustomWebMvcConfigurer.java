@@ -1,4 +1,4 @@
-package com.sdcuike.springboot.extend.jackson;
+package com.sdcuike.extend.mvc.jackson;
 
 import com.fasterxml.jackson.databind.BeanDescription;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
 import com.fasterxml.jackson.databind.ser.BeanSerializerModifier;
+import com.sdcuike.extend.mvc.jackson.annotation.JacksonIgnore;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +27,7 @@ import java.util.stream.Collectors;
  * @date 2019/10/13
  */
 @Configuration
-class CustomWebMvcConfigurer implements WebMvcConfigurer, InitializingBean {
+public class CustomWebMvcConfigurer implements WebMvcConfigurer, InitializingBean {
 
     @Autowired
     private ObjectMapper objectMapper;

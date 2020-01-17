@@ -17,10 +17,14 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Bean(name = "dataSource")
+    public static final String DEFAULT_DS = "default";
+
+    @Bean(name = DEFAULT_DS)
     @ConfigurationProperties("spring.datasource.sdcuike")
     public DataSource dataSource() {
         logger.info("Init DruidDataSource");
         return DruidDataSourceBuilder.create().build();
     }
+
+
 }

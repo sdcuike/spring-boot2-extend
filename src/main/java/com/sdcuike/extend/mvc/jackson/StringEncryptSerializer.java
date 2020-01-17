@@ -1,12 +1,14 @@
-package com.sdcuike.springboot.extend.jackson;
+package com.sdcuike.extend.mvc.jackson;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JacksonStdImpl;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.sdcuike.extend.mvc.jackson.annotation.EncryptValue;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -15,28 +17,31 @@ import java.util.Objects;
 
 /**
  * @author sdcuike
- * @DATE 2019/10/18
+ * @DATE 2019/10/17
  */
-class LongEncryptSerializer extends StdSerializer<Long> implements ContextualSerializer {
-    protected EncryptValue encryptValue;
+@JacksonStdImpl
+class StringEncryptSerializer extends StdSerializer<String> implements ContextualSerializer {
 
-    protected LongEncryptSerializer(Class<Long> t) {
+    private EncryptValue encryptValue;
+
+    protected StringEncryptSerializer(Class<String> t) {
         super(t);
     }
 
+
     @Override
-    public void serialize(Long value, JsonGenerator gen, SerializerProvider provider) throws IOException {
+    public void serialize(String value, JsonGenerator gen, SerializerProvider provider) throws IOException {
         if (value == null) {
             gen.writeNull();
             return;
         }
 
         if (encryptValue == null) {
-            gen.writeNumber(value);
+            gen.writeString(value);
             return;
         }
 
-        String encode = Base64.getEncoder().encodeToString(value.toString().getBytes(StandardCharsets.UTF_8));
+        String encode = Base64.getEncoder().encodeToString(value.getBytes(StandardCharsets.UTF_8));
         gen.writeString(encode);
     }
 
@@ -51,7 +56,7 @@ class LongEncryptSerializer extends StdSerializer<Long> implements ContextualSer
             encryptValue = property.getAnnotation(EncryptValue.class);
         }
 
-        LongEncryptSerializer encryptSerializer = new LongEncryptSerializer(Long.class);
+        StringEncryptSerializer encryptSerializer = new StringEncryptSerializer(String.class);
         encryptSerializer.encryptValue = encryptValue;
         return encryptSerializer;
     }

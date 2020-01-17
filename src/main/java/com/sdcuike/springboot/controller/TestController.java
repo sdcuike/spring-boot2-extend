@@ -1,7 +1,10 @@
 package com.sdcuike.springboot.controller;
 
-import com.sdcuike.springboot.dao.CustomerMapper;
+import com.sdcuike.extend.dynamic.datasource.annotation.DS;
+import com.sdcuike.springboot.config.DataSourceConfig;
+import com.sdcuike.springboot.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
     @Autowired
-    private CustomerMapper customerMapper;
+    private CustomerService customerService;
 
     @GetMapping("/test")
-    public Object test(){
-        return customerMapper.selectByPrimaryKey(103);
+    @DS(DataSourceConfig.DEFAULT_DS)
+    @Transactional
+    public Object test() {
+        return customerService.get(103);
     }
+
+
 }

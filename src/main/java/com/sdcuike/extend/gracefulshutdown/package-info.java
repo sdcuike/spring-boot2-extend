@@ -1,4 +1,5 @@
 /**
+ * 主要实现优雅关闭spring boot应用
  * 参考 https://github.com/corentin59/spring-boot-graceful-shutdown
  * <p>
  * 也可以使用org.springframework.context.SmartLifecycle，针对业务优雅关闭
