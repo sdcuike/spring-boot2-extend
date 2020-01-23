@@ -9,8 +9,8 @@
     <description>project for Spring Boot</description>
 
     <properties>
-        <java.version>11</java.version>
-        <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
+        <java.versionƒ>11</java.versionƒ>
+        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
