@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sdcuike.springboot</groupId>
-    <artifactId>spring-boot2-practice</artifactId>
+    <artifactId>spring-boot2-extend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot2-practice</name>
+    <name>spring-boot2-extend</name>
     <description>project for Spring Boot</description>
 
     <properties>
